@@ -165,7 +165,9 @@ def search_books():
         "limit": limit,
         "page": page,
     }
-
+    if request.args.get("category"):
+        params["subject"] = request.args["category"]
+        
     if request.args.get("title"):
         params["title"] = request.args["title"]
 
@@ -276,6 +278,9 @@ def export_books():
         "limit": limit,
         "page": page,
     }
+
+    if request.args.get("category"):
+        params["subject"] = request.args["category"]
 
     if request.args.get("title"):
         params["title"] = request.args["title"]
